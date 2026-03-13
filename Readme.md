@@ -20,7 +20,7 @@ The code follows the N-Layer architectural pattern to ensure a clean separation 
 * src/config: Database connection and settings.
 
 ## Installation Guide
-To get the project running in less than 2 minutes, follow these steps[cite: 11, 13]:
+To get the project running in less than 2 minutes, follow these steps:
 
 1. Clone the repository:
    git clone https://github.com/jgmr2/architecturesidg7b.git
