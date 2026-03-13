@@ -1,30 +1,33 @@
 const mongoose = require('mongoose');
-const reportSchema = new mongoose.Schema({
-    titulo:{
-        type: String,
-        required: true
-    },
-    descripcion:{
-        type: String,
-        required: true
-    },
-    ubicacion:{
-        type: String,
-        required: true
-    },
-    prioridad:{
-        type: String,
-        enum: ['baja', 'media', 'alta'],
-        default: 'media'
-    },
-    estado:{
-        type: String,
-        default: 'abierto'
-    },
-    fechaCreacion:{
-        type: Date,
-        default: Date.now()
-    },
-})
 
-module.exports = mongoose.model('Reporte', reportSchema);
+const reporteSchema = new mongoose.Schema({
+    titulo: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    descripcion: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    ubicacion: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    estado: {
+        type: String,
+        enum: ['Pendiente', 'En Progreso', 'Resuelto'],
+        default: 'Pendiente'
+    },
+    usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: true
+    }
+}, {
+    timestamps: true
+});
+
+module.exports = mongoose.model('Reporte', reporteSchema);
