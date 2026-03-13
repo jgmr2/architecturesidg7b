@@ -3,24 +3,28 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FernandaPerez77/urban-alert-4635.git"
+    "url": "git+https://github.com/jgmr2/architecturesidg7b.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FernandaPerez77/urban-alert-4635/issues"
+    "url": "https://github.com/jgmr2/architecturesidg7b/issues"
   },
-  "homepage": "https://github.com/FernandaPerez77/urban-alert-4635#readme",
+  "homepage": "https://github.com/jgmr2/architecturesidg7b#readme",
   "description": "",
   "dependencies": {
     "@supabase/supabase-js": "^2.93.1",
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.5"
   }
 }

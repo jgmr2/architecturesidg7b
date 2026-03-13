@@ -1,34 +1,16 @@
-require('dotenv').config();
-//tools
 const express = require('express');
-//const { createClient } = require('@supabase/supabase-js');
+const dotenv = require('dotenv');
 const connectDB = require('./src/config/database');
-const reportesRoutes = require("./src/routes/reportes");
-
+const authRoutes = require('./src/routes/auth');
+const reporteRoutes = require('./src/routes/reportes');
+dotenv.config();
+connectDB();
 const app = express();
+app.use(express.json());
+app.use('/api/auth', authRoutes);
+app.use('/api/reportes', reporteRoutes);
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json()); //Communication
-
-//DB connection
-connectDB();
-
-//Main Routes
-app.use("/api/reportes",reportes );
-
-//supabase client
-//const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
-
-//route example
-//app.get('/', async (req, res) => {
-    //subabase health check
-    //const { data, error } = await supabase.from('profiles').select('*').limit(1);
-    //res.json({
-        //message: 'Welcome to UrbanAlert API.', 
-        //Database_nosql: mongoose.connection.readyState === 1 ? 'connection ready' : 'disconnected', 
-        //supabase_auth: error ? 'error connection' : 'Online'});
-//});
-
 app.listen(PORT, () => {
-    console.log(`port connection running in: http://localhost:${PORT}`);
+    console.log(`Servidor de UrbanAlert corriendo en el puerto ${PORT}`);
 });
